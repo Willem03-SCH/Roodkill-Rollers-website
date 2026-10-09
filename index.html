@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadkill Rollers | Roller Derby Cheatsheet</title>
+<style>
+:root{
+  --red:#eb212e;--red-dark:#c81725;--red-light:#fff0f1;--black:#231f20;
+  --ink:#29242c;--muted:#6d6570;--paper:#fff;--line:#eadde8;
+  --yellow:#ffd95a;--green:#45a96e;--shadow:0 10px 30px rgba(45,17,42,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(135deg,#fff 0%,#fff8fc 65%,#f8e9f5 100%);
+color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+button,a{font:inherit}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1160px;margin:auto;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{display:flex;align-items:center}.logo img{display:block;width:150px;height:auto;max-height:54px;object-fit:contain}
+.navlinks{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{text-decoration:none;font-size:13px;font-weight:850;padding:7px 9px;border-radius:999px}.navlinks a:hover{background:var(--red-light)}
+.hero{max-width:1160px;margin:auto;padding:45px 18px 25px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.kicker{display:inline-block;background:var(--black);color:#fff;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(42px,7vw,74px);line-height:.92;letter-spacing:-.065em;margin:17px 0 14px}h1 span{color:var(--red)}
+.hero p{font-size:18px;color:#514a54;max-width:760px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;border:0;border-radius:13px;padding:11px 15px;background:var(--red);color:#fff;text-decoration:none;font-weight:900;cursor:pointer}
+.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.poster{background:var(--black);padding:10px;border-radius:21px;box-shadow:var(--shadow);transform:rotate(1deg)}
+.poster img{display:block;width:100%;border-radius:13px;cursor:zoom-in}.cheatsheet-svg{display:block;width:100%;height:auto;border-radius:13px}
+.poster-note{color:#d8d0d9;font-size:12px;margin:8px 4px 1px}
+main{max-width:1160px;margin:auto;padding:0 18px 70px}.section{padding:27px 0;scroll-margin-top:72px}
+.eyebrow{font-size:11px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;color:var(--red-dark)}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.02;letter-spacing:-.045em;margin:4px 0 7px}.sub{margin:0;color:var(--muted);max-width:850px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:var(--shadow)}
+.role{border-top:6px solid var(--red)}.rolehead{display:flex;gap:11px;align-items:center}.icon{width:47px;height:47px;border-radius:14px;background:var(--red-light);display:grid;place-items:center;font-size:24px}.role h3{margin:0;font-size:21px}
+.count{display:inline-block;background:var(--black);color:#fff;border-radius:999px;padding:5px 9px;font-size:12px;font-weight:900;margin-top:8px}.card p{color:#57505a}.small{font-size:13px;color:var(--muted)!important}
+.dark{background:var(--black);color:#fff;border-radius:21px;padding:21px}.dark p{color:#d7cfd8}.dark h3{margin:0 0 5px;font-size:23px}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:14px}.rule{display:flex;gap:11px;padding:14px 0;border-bottom:1px solid #403942}.rule:last-child{border-bottom:0}.num{width:31px;height:31px;flex:0 0 31px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:950}.rule b{display:block}.rule span{display:block;color:#cfc7d0;font-size:14px}
+.pass{background:linear-gradient(120deg,var(--red-light),#fff);border:2px solid #f1b6df;border-radius:21px;padding:21px}.pass h3{margin:2px 0 5px;font-size:24px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:13px}.flow div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}.flow b{color:var(--red-dark)}.flow p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.tip{margin-top:11px;padding:12px 14px;border-left:5px solid var(--green);background:#fff;border-radius:10px;font-size:14px}
+.tactics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tactic{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}.tag{display:inline-block;background:var(--red-light);color:var(--red-dark);font-size:11px;font-weight:950;padding:5px 8px;border-radius:999px}.tactic h3{margin:8px 0 4px}.tactic p{margin:0;color:var(--muted);font-size:14px}
+.five{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:20px;overflow:hidden}.step{background:#fff;padding:17px;min-height:180px;border-right:1px solid var(--line)}.step:last-child{border-right:0}.stepnum{font-size:11px;color:var(--red-dark);font-weight:950;text-transform:uppercase}.step h3{margin:7px 0 5px;font-size:18px}.step p{font-size:13px;color:var(--muted);margin:0}
+.example{margin-top:12px;background:var(--black);color:#fff;border-radius:17px;padding:16px}.example b{color:#eb212e}.example p{margin:3px 0;color:#ddd5de}
+.glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 13px}summary{cursor:pointer;font-weight:900}details p{margin:7px 0 0;color:var(--muted);font-size:14px}
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.video{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#111}.video-body{padding:14px}.video-body h3{margin:0 0 5px}.video-body p{margin:0 0 10px;color:var(--muted);font-size:13px}
+.video-warning{margin-top:10px;background:#fff7da;border:1px solid #f0d67a;padding:11px 13px;border-radius:11px;font-size:13px}
+.source{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}.source a{text-decoration:none}
+.quiz-grid{display:grid;grid-template-columns:1fr .65fr;gap:14px}.quiz{background:var(--black);color:#fff;border-radius:20px;padding:20px}.progress{height:7px;background:#413942;border-radius:99px;overflow:hidden;margin:2px 0 18px}.progress i{display:block;height:100%;width:0;background:var(--red)}.question{font-size:20px;font-weight:900;line-height:1.25;margin:0 0 14px}.options{display:grid;gap:8px}.option{text-align:left;border:1px solid #4d4550;background:#2c2730;color:#fff;border-radius:12px;padding:11px 13px;cursor:pointer}.option.correct{background:#215c3e;border-color:#54c787}.option.wrong{background:#69283d;border-color:#e8759c}.feedback{min-height:26px;margin:10px 0;font-weight:800}.scorebox{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;flex-direction:column;justify-content:center}.score{font-size:48px;font-weight:950;color:var(--red-dark)}
+.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(15,12,16,.88);padding:25px;align-items:center;justify-content:center}.modal.open{display:flex}.modal img{max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px}.close{position:absolute;right:18px;top:12px;color:#fff;background:var(--red);border:0;border-radius:50%;width:42px;height:42px;font-size:23px;cursor:pointer}
+footer{background:var(--black);color:#fff;text-align:center;padding:27px 18px}footer strong{color:#eb212e}footer .footnote{font-size:11px;color:#978f99;margin-top:6px}
+@media(max-width:900px){.hero-grid,.rules,.quiz-grid,.video-grid{grid-template-columns:1fr}.cards,.tactics{grid-template-columns:1fr}.five{grid-template-columns:1fr}.step{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.flow,.glossary{grid-template-columns:1fr}.navlinks{display:none}}
+.full-poster{
+  margin-top:16px;
+  background:var(--black);
+  border:2px solid var(--red);
+  border-radius:21px;
+  padding:10px;
+  box-shadow:var(--shadow);
+}
+.full-poster img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:13px;
+}
+
+
+.quick-sheet{margin-top:14px;background:#fff;border:2px solid var(--red);border-radius:21px;overflow:hidden;box-shadow:var(--shadow)}
+.quick-sheet-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:17px 20px;background:var(--black);color:#fff}
+.quick-sheet-head strong{font-size:clamp(17px,2.5vw,24px);font-weight:950;letter-spacing:-.02em}
+.quick-sheet-head span{font-size:11px;letter-spacing:.1em;font-weight:900;color:#ffc5ca;text-transform:uppercase}
+.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.quick-item{padding:17px 19px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.quick-item:nth-child(2n){border-right:0}
+.quick-item h3{margin:0 0 8px;font-size:20px;line-height:1.2}
+.quick-item p{margin:6px 0;color:#57505a;font-size:14px}
+.quick-item b{color:var(--red-dark)}
+.quick-footer{padding:12px 18px;background:var(--red-light);font-size:13px;color:var(--ink)}
+@media(max-width:700px){.quick-grid{grid-template-columns:1fr}.quick-item{border-right:0}.quick-item:last-child{border-bottom:0}}
+</style>
+</head>
+<body>
+
+<header class="top">
+<nav class="nav">
+  <div class="logo"><img src="data:image/png;base64,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" alt="Roadkill Rollers logo"></div>
+  <div class="navlinks">
+    <a href="#cheatsheet-beeld">Cheatsheet</a><a href="#rollen">Rollen</a><a href="#regels">Regels</a><a href="#pass">Pass</a>
+    <a href="#jam">Jam</a><a href="#video">Video</a><a href="#quiz">Quiz</a>
+  </div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-grid">
+  <div>
+    <span class="kicker">ROLLER DERBY • VOOR BEGINNERS</span>
+    <h1>Roller derby<br><span>simpel uitgelegd.</span></h1>
+    <p>Wil je tijdens een wedstrijd snappen wat er gebeurt? Begin hier. Leer wie wie is, hoe je punten krijgt en wanneer een jam stopt.</p>
+    <div class="actions"><a class="btn" href="#rollen">Begin hier ↓</a><a class="btn secondary" href="#jam">Bekijk een jam</a></div>
+  </div>
+  <div class="poster">
+    <div class="poster-head">ROADKILL ROLLERS • SPIEKBRIEFJE</div>
+    <div class="poster-sub">De belangrijkste dingen om een wedstrijd te volgen</div>
+  </div>
+</div>
+</section>
+
+<main>
+
+<section class="section" id="cheatsheet-beeld">
+  <div class="eyebrow">Cheatsheet</div>
+  <h2>De spelregels in één oogopslag</h2>
+  <p class="sub">Nieuw bij roller derby? Gebruik dit overzicht tijdens de wedstrijd. Je hoeft niet alles tegelijk te volgen: begin met de Jammers.</p>
+  <div class="quick-sheet">
+    <div class="quick-sheet-head"><strong>ROADKILL ROLLERS • SPIEKBRIEFJE</strong><span>De basis voor toeschouwers</span></div>
+    <div class="quick-grid">
+      <article class="quick-item">
+        <h3>⭐ De rollen</h3>
+        <p><b>Jammer / Star:</b> de Jammer draagt de helmcover met ster (de <b>Star</b>) en scoort punten.</p>
+        <p><b>Blockers:</b> helpen hun eigen Jammer en proberen de andere Jammer tegen te houden. Samen vormen ze de <b>Pack</b>.</p>
+        <p><b>Pivot / Stripe:</b> de Pivot is een Blocker met de helmcover met streep (de <b>Stripe</b>). Na een geslaagde <b>Star Pass</b> wordt de Pivot de nieuwe Jammer.</p>
+      </article>
+      <article class="quick-item">
+        <h3>🎯 Lead Jammer</h3>
+        <p>In een gewone Jam proberen de Jammers tijdens hun eerste trip door de Pack Lead te verdienen. De officials geven de Lead Jammer aan met twee korte fluitsignalen.</p>
+        <p>Alleen de <b>Lead Jammer</b> kan de Jam vroegtijdig afroepen: dat gebeurt door herhaaldelijk beide handen op de heupen te plaatsen.</p>
+      </article>
+      <article class="quick-item">
+        <h3>🔢 Punten: Lap / Lapping</h3>
+        <p>De Jammer scoort één punt voor elke Blocker van de tegenpartij die wordt gelapt, als de pass volgens de regels telt.</p>
+        <p><b>Lappen</b> betekent dat de Jammer dezelfde skater twee keer achter elkaar passeert, zonder dat die skater tussendoor de Jammer passeert. De tweede pass moet een <b>Earned Pass</b> zijn.</p>
+      </article>
+      <article class="quick-item">
+        <h3>⏱️ Jam & Penalty Box</h3>
+        <p>Een Jam duurt maximaal <b>2 minuten</b>. Zonder Lead Jammer kan de Jam niet op die manier eerder worden afgeroepen.</p>
+        <p>Een penalty duurt normaal <b>30 seconden jamtijd</b>: eerst 20 seconden zittend en de laatste 10 seconden staand. De tijd loopt alleen tijdens een Jam.</p>
+      </article>
+    </div>
+    <div class="quick-footer"><b>Uitzondering:</b> bij een Overtime Jam wordt geen Lead Jammer aangewezen en kunnen beide Jammers al op hun eerste trip punten scoren. <a href="https://rules.wftda.com/singlehtml/" target="_blank" rel="noopener">Bekijk de officiële WFTDA-regels</a> voor alle voorwaarden en uitzonderingen.</div>
+  </div>
+</section>
+
+<section class="section" id="rollen">
+<div class="eyebrow">01 • De rollen</div><h2>Wie staat er op de baan?</h2>
+<p class="sub">Tijdens een jam staan er per team maximaal <b>5 skaters</b> op de baan: <b>1 Jammer en maximaal 4 Blockers</b>. Eén van die Blockers kan de Pivot zijn.</p>
+<div class="cards" style="margin-top:14px">
+  <article class="card role"><div class="rolehead"><div class="icon">⭐</div><h3>Jammer</h3></div><span class="count">1 per team</span><p>De Jammer is de skater die punten voor het team scoort. Je herkent de Jammer aan de helmcover met een ster: de <b>Star</b>.</p><p class="small"><b>Doel:</b> door de Pack komen en daarna tegenstanders lappen.</p></article>
+  <article class="card role"><div class="rolehead"><div class="icon">🧱</div><h3>Blocker</h3></div><span class="count">Maximaal 4 per team</span><p>Blockers vormen samen de Pack. Ze helpen hun eigen Jammer vooruit en proberen de Jammer van de tegenpartij tegen te houden.</p><p class="small">Eén Blocker kan de Pivot zijn.</p></article>
+  <article class="card role"><div class="rolehead"><div class="icon">▰</div><h3>Pivot</h3></div><span class="count">1 per team</span><p>De Pivot is een <b>Blocker met de helmcover met streep</b> (de <b>Stripe</b>). Bij een geslaagde <b>Star Pass</b> kan de Pivot de nieuwe Jammer worden.</p><p class="small"><b>Onthoud:</b> de Pivot is zelf ook een Blocker.</p></article>
+</div>
+</section>
+
+<section class="section" id="regels">
+<div class="eyebrow">02 • Basisregels</div><h2>Dit heb je nodig om te kunnen kijken</h2>
+<div class="rules" style="margin-top:14px">
+  <div class="dark">
+    <div class="rule"><div class="num">1</div><div><b>Een jam duurt maximaal 2 minuten.</b><span>De jam kan eerder stoppen als de lead jammer hem afroept.</span></div></div>
+    <div class="rule"><div class="num">2</div><div><b>De Jammer scoort punten.</b><span>De Jammer scoort één punt voor elke tegenstander die wordt gelapt, als de pass volgens de regels telt. Na een geslaagde Star Pass wordt de Pivot de nieuwe Jammer.</span></div></div>
+    <div class="rule"><div class="num">3</div><div><b>De blockers vormen de pack.</b><span>Ze proberen hun eigen jammer te helpen en de andere jammer tegen te houden.</span></div></div>
+    <div class="rule"><div class="num">4</div><div><b>Een penalty wordt uitgezeten in de Penalty Box.</b><span>Per penalty is dit 30 seconden jamtijd: eerst 20 seconden zittend en de laatste 10 seconden staand.</span></div></div>
+  </div>
+  <div class="card"><h3>De gouden kijk-tip 👀</h3><p><b>Volg eerst alleen de jammers.</b> Zoek de twee sterren op de helmen. Kijk wie als eerste door de pack komt en daarna welke tegenstanders worden gepasseerd.</p><p class="small">Je hoeft als beginner niet tegelijk naar alle blockers, officials en tactieken te kijken. Als je de jammers kunt volgen, begrijp je al een groot deel van de wedstrijd.</p></div>
+</div>
+</section>
+
+<section class="section" id="pass">
+<div class="eyebrow">03 • Pass / Earned Pass</div><h2>Wanneer telt een pass?</h2>
+<div class="pass">
+  <h3>Een pass is niet automatisch een punt</h3>
+  <p>Een <b>pass</b> is wanneer een skater in de rijrichting van achter een andere skater naar vóór die skater komt. Voor een <b>Earned Pass</b> (een verdiende pass) moet de Jammer de <b>Star</b> dragen met de sterren zichtbaar en tijdens het passeren rechtop en binnen de baan zijn. In het officiële regelboek staan uitzonderingen; de officials beoordelen de situatie.</p>
+  <div class="flow">
+    <div><b>① Herken de Jammer</b><p>De Jammer draagt de Star: de helmcover met sterren, met de sterren zichtbaar.</p></div>
+    <div><b>② Kijk naar de pass</b><p>Gaat de Jammer voorbij een Blocker? Dan kan dat een pass zijn.</p></div>
+    <div><b>③ Denk aan de regels</b><p>Voor een Earned Pass moet de pass aan de voorwaarden voldoen. De officials beoordelen of die telt.</p></div>
+  </div>
+  <div class="tip"><b>Voorbeeld van een pass die niet verdiend is:</b> de Jammer haalt een Blocker in terwijl de Star niet op de helm zit of de sterren niet zichtbaar zijn. Dan is dit geen Earned Pass volgens de hoofdregel. Een pass betekent dus niet automatisch dat er een punt wordt toegekend.</div>
+  <div class="tip" style="margin-top:10px"><b>Star Pass:</b> de Jammer geeft de Star aan de eigen Pivot. De overdracht is alleen geldig als aan de regels wordt voldaan, waaronder dat beide skaters rechtop, binnen de baan en in play zijn en niet op weg zijn naar of in de rij staan voor de Penalty Box. Na een geslaagde Star Pass wordt de Pivot de nieuwe Jammer; de oorspronkelijke Jammer wordt een Non-Pivot Blocker.</div>
+</div>
+</section>
+
+<section class="section">
+<div class="eyebrow">04 • Lead Jammer</div><h2>Hoe kan een jam eerder eindigen?</h2>
+<div class="dark">
+  <h3>De Lead Jammer kan de Jam afroepen ✋</h3>
+  <p>De <b>Lead Jammer</b> is de eerste Jammer die een <b>Earned Pass</b> heeft op de Blockers die voor Lead meetellen en daarna vóór de voorste Blocker in play komt. De officials geven de Lead Jammer aan met <b>twee korte fluitsignalen</b>.</p>
+  <p>Alleen de Lead Jammer kan de Jam vóór het einde van de 2 minuten stoppen. Dat doet die door <b>herhaaldelijk beide handen op de heupen te plaatsen</b>.</p>
+  <p><b>Let op:</b> een Jammer kan de kans op Lead verliezen, bijvoorbeeld door een penalty tijdens de Jam of door de Star bewust af te doen. De officiële regels bevatten meer voorwaarden.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="eyebrow">05 • Tactiek</div><h2>Wat gebeurt er in de pack?</h2>
+<div class="tactics" style="margin-top:14px">
+  <article class="tactic"><span class="tag">BLOCKERS</span><h3>Samen verdedigen</h3><p>Blockers werken samen om de tegenstander tegen te houden en hun eigen Jammer ruimte te geven.</p></article>
+  <article class="tactic"><span class="tag">PACK</span><h3>De groep Blockers</h3><p>De Pack is de grootste groep Blockers van beide teams die dicht genoeg bij elkaar staan.</p></article>
+  <article class="tactic"><span class="tag">SAMENSPEL</span><h3>Elkaar helpen</h3><p>Blockers gebruiken hun positie op de baan om de andere Jammer af te remmen en hun eigen Jammer te helpen.</p></article>
+</div>
+</section>
+
+<section class="section" id="jam">
+<div class="eyebrow">06 • Voorbeeld</div><h2>Een jam in vijf stappen</h2>
+<p class="sub">Gebruik deze vijf stappen als kijkwijzer tijdens een echte wedstrijd.</p>
+<div class="five" style="margin-top:14px">
+  <div class="step"><div class="stepnum">Stap 1</div><h3>Start</h3><p>De Blockers starten tussen de Pivot Line en Jammer Line. De Jammers starten achter of op de Jammer Line.</p></div>
+  <div class="step"><div class="stepnum">Stap 2</div><h3>Eerste trip</h3><p>In een gewone Jam proberen de Jammers eerst door de Pack te komen en Lead te verdienen. Op deze eerste trip worden normaal nog geen punten gescoord. Bij een Overtime Jam (verlenging bij gelijke stand) wordt geen Lead Jammer aangewezen en kunnen beide Jammers al op hun eerste trip punten scoren.</p></div>
+  <div class="step"><div class="stepnum">Stap 3</div><h3>Lead</h3><p>De eerste Jammer die volgens de regels de Lead-status behaalt, krijgt twee korte fluitsignalen van de officials.</p></div>
+  <div class="step"><div class="stepnum">Stap 4</div><h3>Punten</h3><p>Daarna rijdt de Jammer om de baan en probeert de Pack opnieuw te passeren. Die scoort één punt per tegenstander die wordt gelapt, als de pass volgens de regels telt.</p></div>
+  <div class="step"><div class="stepnum">Stap 5</div><h3>Einde</h3><p>De Lead Jammer kan de Jam afroepen door herhaaldelijk beide handen op de heupen te plaatsen. Anders duurt de Jam maximaal 2 minuten.</p></div>
+</div>
+<div class="example"><b>Voorbeeld:</b> Jammer A verdient tijdens de eerste trip Lead. Op een volgende trip lapt A tegenstanders en scoort punten. A wil de Jam stoppen en plaatst herhaaldelijk beide handen op de heupen. De officials beëindigen de Jam; de punten die volgens de regels zijn verdiend blijven staan.</div>
+</section>
+
+<section class="section">
+<div class="eyebrow">07 • Begrippen</div><h2>Moeilijke woorden in gewone taal</h2>
+<p class="sub">Klik op een begrip voor een korte uitleg.</p>
+<div class="glossary" style="margin-top:14px">
+<details><summary>Jam</summary><p>Een speelperiode van maximaal twee minuten.</p></details>
+<details><summary>Pack</summary><p>De grootste groep Blockers van beide teams die rechtop, binnen de baan en dicht genoeg bij elkaar staan.</p></details>
+<details><summary>Lead Jammer</summary><p>De eerste Jammer die een Earned Pass heeft op de Blockers die voor Lead meetellen en vóór de voorste Blocker in play komt. De officials geven dit aan met twee korte fluitsignalen. Alleen de Lead Jammer kan de Jam vóór de twee minuten afroepen.</p></details>
+<details><summary>Star</summary><p>De helmcover met een ster die de Jammer draagt. Star is de officiële term voor die helmcover, geen aparte spelersrol.</p></details>
+<details><summary>Star Pass</summary><p>De Jammer geeft de Star aan de eigen Pivot. Alleen als de overdracht aan de voorwaarden van de regels voldoet, wordt de Pivot de nieuwe Jammer.</p></details>
+<details><summary>Pivot / Stripe</summary><p>De Pivot is een Blocker met extra mogelijkheden. Bij de start van de Jam herken je de Pivot aan de helmcover met streep: de Stripe.</p></details>
+<details><summary>Earned Pass</summary><p>Een verdiende pass. Als hoofdregel moet de Jammer de Star dragen met de sterren zichtbaar en rechtop en binnen de baan passeren. De regels kennen uitzonderingen.</p></details>
+<details><summary>Lap / Lapping</summary><p>Een skater is gelapt als de Jammer die skater twee keer achter elkaar passeert zonder dat die skater tussendoor de Jammer passeert. De Jammer scoort een punt voor een gelapte tegenstander als de relevante pass verdiend is.</p></details>
+<details><summary>Penalty Box</summary><p>De strafbank. Een penalty duurt normaal 30 seconden jamtijd: eerst 20 seconden zittend en de laatste 10 seconden staand. De tijd loopt alleen tijdens een Jam. Voor sommige situaties bestaan uitzonderingen in de officiële regels.</p></details>
+<details><summary>In Bounds / Out of Bounds</summary><p>In Bounds betekent binnen de grenzen van de baan. Een skater is Out of Bounds als een deel van het lichaam of de uitrusting de vloer buiten de baan raakt. Alleen een arm of hand die buiten de baan de vloer raakt, maakt de skater niet automatisch Out of Bounds.</p></details>
+<details><summary>Out of Play</summary><p>Een Blocker die buiten de Engagement Zone staat, is Out of Play en mag daar niet blokkeren of geblokkeerd worden. Als er geen Pack is, zijn alle Blockers Out of Play.</p></details>
+<details><summary>NSO</summary><p>Non-Skating Official: een official die niet op skates staat en bijvoorbeeld score, penalties of tijd bijhoudt.</p></details>
+</div>
+</section>
+
+<section class="section" id="video">
+<div class="eyebrow">08 • In actie zien</div><h2>Bekijk de video's</h2>
+<p class="sub">De video's openen nu bewust via YouTube. Zo voorkom je dat een lokaal geopend HTML-bestand wordt geblokkeerd door YouTube's embed-beveiliging.</p>
+<div class="video-grid" style="margin-top:14px">
+  <article class="video">
+    <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#17151b,#c81725);display:grid;place-items:center;color:#fff">
+      <div style="text-align:center;padding:20px"><div style="font-size:52px">▶</div><div style="font-size:22px;font-weight:950">ROLLER DERBY VIDEO 1</div></div>
+    </div>
+    <div class="video-body"><h3>Video 1</h3><p>Open de video op YouTube en gebruik de cheatsheet om de jammers en pack te herkennen.</p><a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=OId6gTd2LCM">▶ Bekijk video op YouTube</a></div>
+  </article>
+  <article class="video">
+    <div style="aspect-ratio:16/9;background:linear-gradient(135deg,#17151b,#c81725);display:grid;place-items:center;color:#fff">
+      <div style="text-align:center;padding:20px"><div style="font-size:52px">▶</div><div style="font-size:22px;font-weight:950">ROLLER DERBY VIDEO 2</div></div>
+    </div>
+    <div class="video-body"><h3>Video 2</h3><p>Bekijk de tweede video en probeer daarna zelf de vijf stappen van een jam te herkennen.</p><a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=sFC6YE8zLmY">▶ Bekijk video op YouTube</a></div>
+  </article>
+</div>
+</section>
+
+<section class="section" id="quiz">
+<div class="eyebrow">09 • Check jezelf</div><h2>Mini-quiz</h2>
+<div class="quiz-grid" style="margin-top:14px">
+  <div class="quiz"><div class="progress"><i id="bar"></i></div><p class="question" id="q"></p><div class="options" id="options"></div><div class="feedback" id="feedback"></div><button class="btn" id="next" style="display:none">Volgende vraag →</button></div>
+  <div class="scorebox"><div class="eyebrow">Jouw score</div><div class="score" id="score">0 / 5</div><p id="scoreText">Beantwoord de vragen om te starten.</p><button class="btn secondary" id="restart">Opnieuw beginnen</button></div>
+</div>
+</section>
+
+<section class="section">
+<div class="source">
+<div class="eyebrow">10 • Officiële bron</div><h2>Meer weten?</h2>
+<p class="sub">Deze website is bewust vereenvoudigd voor beginnende toeschouwers. De uitleg van rollen, star pass, lead, scoring en penalties is gecontroleerd aan de hand van het actuele WFTDA-regelboek. Voor officiële definities, uitzonderingen en de volledige regels is dat regelboek leidend.</p>
+<p><a class="btn" target="_blank" rel="noopener" href="https://rules.wftda.com/">Bekijk de officiële WFTDA-regels ↗</a>
+<a class="btn secondary" target="_blank" rel="noopener" href="https://roadkillrollers.nl/">Naar Roadkill Rollers ↗</a></p>
+</div>
+</section>
+</main>
+
+<footer>
+<img src="data:image/png;base64,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" alt="Roadkill Rollers logo" style="width:150px;height:auto;background:#fff;border-radius:10px;padding:5px;margin-bottom:8px">
+<br><strong>LET'S ROLL! 🛼</strong><br>
+Roadkill Rollers • eenvoudige introductie voor nieuwe toeschouwers
+<div class="footnote">Voor officiële regels en uitzonderingen geldt het actuele WFTDA-regelboek.</div>
+</footer>
+
+<div class="modal" id="modal" aria-label="Grote weergave van de originele cheatsheet">
+<button class="close" id="close" aria-label="Sluiten">×</button>
+<img id="modalImg" alt="Grote weergave van de originele Roadkill Rollers cheatsheet">
+</div>
+
+<script>
+const qs=[
+ {q:"Hoeveel jammers staan er maximaal per team op de baan?",a:["1","2","3","4"],c:0},
+ {q:"Hoeveel blockers heeft een team maximaal?",a:["1","2","3","4"],c:3},
+ {q:"Wie scoort de punten?",a:["De jammer","Alle blockers","De pivot","De referee"],c:0},
+ {q:"Wie kan de jam vroegtijdig afroepen?",a:["Elke blocker","De lead jammer","De NSO","De pivot"],c:1},
+ {q:"Hoe herken je de Pivot?",a:["Aan een ster","Aan de Stripe: de streep op de helmcover","Aan een fluitje","Aan een gele broek"],c:1},
+ {q:"Wat gebeurt er bij een geslaagde Star Pass?",a:["De Pivot wordt de nieuwe Jammer","De Jam stopt","De Blocker wordt Lead","De punten verdwijnen"],c:0},
+ {q:"Hoe lang duurt een penalty en hoe eindigt die?",a:["30 seconden zitten","20 seconden zitten en de laatste 10 seconden staan","10 seconden zitten en 20 seconden staan","30 seconden staan"],c:1},
+ {q:"Wat betekent Lap / Lapping?",a:["Een Jam stoppen","Een skater twee keer achter elkaar passeren zonder tussendoor zelf gepasseerd te worden","Een wissel van spelers","Een penalty uitzitten"],c:1},
+ {q:"Wat is een Earned Pass?",a:["Elke pass die er snel uitziet","Een pass die volgens de regels telt","Een Star Pass","Een pass buiten de baan"],c:1}
+];
+let qi=0,sc=0,answered=false;
+const q=document.getElementById("q"),opts=document.getElementById("options"),fb=document.getElementById("feedback"),next=document.getElementById("next"),bar=document.getElementById("bar"),score=document.getElementById("score"),scoreText=document.getElementById("scoreText");
+function renderQuiz(){answered=false;next.style.display="none";fb.textContent="";const x=qs[qi];q.textContent=(qi+1)+". "+x.q;opts.innerHTML="";x.a.forEach((t,i)=>{let b=document.createElement("button");b.className="option";b.textContent=t;b.onclick=()=>answer(i);opts.appendChild(b)});bar.style.width=(qi/qs.length*100)+"%";score.textContent=sc+" / "+qs.length}
+function answer(i){if(answered)return;answered=true;const x=qs[qi];[...opts.children].forEach((b,n)=>{b.disabled=true;if(n===x.c)b.classList.add("correct");if(n===i&&i!==x.c)b.classList.add("wrong")});if(i===x.c){sc++;fb.textContent="Goed! 🎉"}else fb.textContent="Bijna. Het juiste antwoord is: "+x.a[x.c];score.textContent=sc+" / "+qs.length;bar.style.width=((qi+1)/qs.length*100)+"%";next.textContent=qi===qs.length-1?"Bekijk resultaat":"Volgende vraag →";next.style.display="inline-block"}
+next.onclick=()=>{if(qi<qs.length-1){qi++;renderQuiz()}else{q.textContent="Klaar! 🛼";opts.innerHTML="";fb.textContent="Je score is "+sc+" van "+qs.length+".";next.style.display="none";scoreText.textContent=sc===qs.length?"Perfect — jij kunt de basis volgen!":sc>=Math.ceil(qs.length*0.6)?"Goed bezig — je hebt de belangrijkste begrippen te pakken.":"Gebruik de cheatsheet nog een keer en probeer opnieuw."}};
+document.getElementById("restart").onclick=()=>{qi=0;sc=0;scoreText.textContent="Beantwoord de vragen om te starten.";renderQuiz()};
+renderQuiz();
+
+
+</script>
+</body>
+</html>
